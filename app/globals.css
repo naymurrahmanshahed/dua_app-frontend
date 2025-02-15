@@ -3,19 +3,69 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-color: #1fa45b;
+  --text-color: #393939;
+}
+body {
+  color: var(--text-color);
+}
+.container {
+  max-width: 100%;
+  width: auto;
+  margin: 0 auto;
+  padding: 0 20px;
+  margin-top: 30px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.main-container {
+  display: grid;
+  grid-template-columns: 60px minmax(800px, 1fr) 300px;
+  gap: 20px;
+  height: 100vh;
+}
+
+.dua-container {
+  display: grid;
+  grid-template-columns: minmax(70px, 1fr) minmax(600px, 1fr);
+  gap: 20px;
+  height: 100vh;
+}
+
+.category-card-section::-webkit-scrollbar,
+.dua-content-container::-webkit-scrollbar {
+  display: none;
+}
+
+.dua-title-left::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #1fa45b;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 60px minmax(800px, 1fr);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@media screen and (max-width: 990px) {
+  .main-container {
+    grid-template-columns: minmax(800px, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-container {
+    grid-template-columns: 1fr;
+  }
+  .dua-container {
+    grid-template-columns: 1fr;
+  }
 }
